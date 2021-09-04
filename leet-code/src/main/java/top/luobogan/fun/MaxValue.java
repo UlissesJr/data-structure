@@ -17,9 +17,9 @@ public class MaxValue {
 
     public static void main(String[] args) {
 
-//        int simplicity = simplicity(array);
-        int quick = quick(array);
-        System.out.println(quick);
+//        int ans = simplicity(array);
+        int ans = quick(array);
+        System.out.println(ans);
 
 
     }
@@ -60,46 +60,15 @@ public class MaxValue {
         }
         int i = array.length;
         // 将x0+y0作为temp初始化.
-        int temp = array[0][0] + array[0][1];
-        int minusMax = -10000000;
-        int ans = -10000;
-        int tempIndex = 0;
-        int minusMaxIndex = 0;
-        Set maxV = new HashSet();
-        List maxList = new ArrayList();
+        int temp = -100000;
+        int ans = -100000;
         for (int a = 1; a < i; a++) {
             // 求xi+yi最大值
-            int xxxtemp = temp;
-            int xxxminuxMax = minusMax;
-            temp = Math.max(temp,array[a][0] + array[a][1]);
-            if(xxxtemp != temp){
-                tempIndex = a;
-            }
-            minusMax = Math.max(minusMax,array[a-1][1]-array[a-1][0]);
-            if(xxxminuxMax != minusMax){
-                minusMaxIndex = a-1;
-            }
-            ans = temp + minusMax;
-            maxV.add(ans);
+            temp = Math.max(temp,array[a-1][1] - array[a-1][0]);
+            ans = Math.max(ans,array[a][1] + array[a][0] + temp);
         }
-        // 对set进行排序
-        Set<Integer> sortSet = new TreeSet<Integer>((o1,o2) -> o2.compareTo(o1));
-        sortSet.addAll(maxV);
-        for(int element:sortSet){
-            maxList.add(element);
-        }
-        Object[] objects = sortSet.toArray();
-        if(maxList.size() <= 1){
-            return (int) maxList.get(0);
-        }
-        Integer max = 0;
-        if(tempIndex != minusMaxIndex){
-            max = (Integer) maxList.get(0);
-        }
-            max = (Integer)maxList.get(1);
-        System.out.println(maxList.toString());
-        System.out.println("temp: " + temp + ",minus: " + minusMax);
-        return max;
+
+        return ans;
     }
 
 }
