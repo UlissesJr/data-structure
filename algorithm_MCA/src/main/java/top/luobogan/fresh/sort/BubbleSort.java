@@ -11,11 +11,15 @@ public class BubbleSort {
         sort(list);
     }
 
-    private static void sort(int[] list){
+    public static int[] sort(int[] list){
 
         // 边界条件
-        if(list == null || list.length < 2){
-            return ;
+        if(list == null ){
+            return null;
+        }
+
+        if(list.length < 2){
+            return list;
         }
 
         int N = list.length;
@@ -28,6 +32,7 @@ public class BubbleSort {
         }
 
         printArray(list);
+        return list;
     }
 
     private static void printArray(int[] list){
