@@ -2,8 +2,6 @@ package top.luobogan.stack;
 
 /**
  * 基于链表实现的栈。
- *
- * Author: Zheng
  */
 public class StackBasedOnLinkedList {
   private Node top = null;
