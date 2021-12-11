@@ -24,10 +24,17 @@ public class BubbleSort {
 
         int N = list.length;
         for(int i = 0; i < N ; i++){
+            // 提前退出冒泡循环的标志位
+            boolean flag = false;
             for(int j = 0; j< N-i-1; j++){
                 if(list[j] > list[j+1]){
                     swap(list,j,j+1);
+                    flag = true;
                 }
+            }
+            // 没有数据交换，提前退出
+            if (!flag) {
+                break;
             }
         }
 
