@@ -33,8 +33,6 @@ public class PrintBinary {
         // ~a+1 = -a (a不论正负都适用)
         System.out.println(~(-1)+1);
 
-
-
     }
 
 }
