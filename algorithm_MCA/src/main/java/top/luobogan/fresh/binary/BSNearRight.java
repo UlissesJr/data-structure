@@ -4,14 +4,14 @@ import top.luobogan.fresh.sort.InsertSort;
 
 /**
  * Created by LuoboGan
- * 二分查找 :在有序数组中找到 >=num 最左的位置
+ * 二分查找 :在有序数组中找到 <=num 最右的位置
  * Date:2021/12/13
  */
-public class BSNearLeft {
+public class BSNearRight {
 
     public static void main(String[] args) {
 
-        int maxLen = 50;
+        int maxLen = 10;
         int maxValue = 1000;
         int testTime = 10000;
         boolean succeed = true;
@@ -43,11 +43,11 @@ public class BSNearLeft {
 
         while(L <= R){
             M = L + ((R-L) >> 1);
-           if(arr[M] >= num){
-               R = M - 1;
+           if(arr[M] <= num){
+               L = M + 1;
                index = M;
            }else{
-               L = M + 1;
+               R = M - 1;
            }
         }
 
@@ -55,12 +55,15 @@ public class BSNearLeft {
     }
 
     public static int test(int[] arr, int value){
+        int index = -1;
         for(int i = 0; i < arr.length; i++){
-            if(arr[i] >= value){
-                return i;
+            if(arr[i] <= value){
+                index = i ;
+            }else {
+                return index ;
             }
         }
-        return -1;
+        return index;
     }
 
     public static int[] lenRandomValueRandom(int maxLen, int maxValue){

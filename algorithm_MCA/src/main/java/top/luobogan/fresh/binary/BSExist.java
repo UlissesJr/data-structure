@@ -4,7 +4,7 @@ import top.luobogan.fresh.sort.InsertSort;
 
 /**
  * Created by LuoboGan
- * 二分查找 有序数组中num
+ * 二分查找有序数组中的num
  * Date:2021/12/13
  */
 public class BSExist {
@@ -37,15 +37,14 @@ public class BSExist {
 
         int L = 0;
         int R = arr.length -1 ;
-        int M = (L + R) / 2 ;
+        int M = 0 ;
 
         while(L <= R){
+            M = L + ((R-L) >> 1);
             if( arr[M] < num ){
                 L = M + 1;
-                M = (L + R) / 2;
             }else if(arr[M] > num){
                 R = M - 1;
-                M = (L + R) / 2;
             }else{
                 return true;
             }
@@ -75,7 +74,5 @@ public class BSExist {
         }
         return InsertSort.sort(ans);
     }
-
-
 
 }
