@@ -22,7 +22,9 @@ public class Array {
 
     //根据索引，找到数据中的元素并返回
     public int find(int index){
-        if (index<0 || index>=count) return -1;
+        if (index<0 || index>=count) {
+            return -1;
+        }
         return data[index];
     }
 
@@ -57,7 +59,9 @@ public class Array {
     }
     //根据索引，删除数组中元素
     public boolean delete(int index){
-        if (index<0 || index >=count) return false;
+        if (index<0 || index >=count) {
+            return false;
+        }
         //从删除位置开始，将后面的元素向前移动一位
         for (int i=index+1; i<count; ++i){
             data[i-1] = data[i];

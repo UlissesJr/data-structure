@@ -1,1 +1,2 @@
 # data-structure
+学习数据结构与算法以及LeetCode刷题的记录总结

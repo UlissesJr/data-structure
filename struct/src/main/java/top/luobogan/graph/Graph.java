@@ -31,7 +31,9 @@ public class Graph {
     }
 
     public void bfs(int s, int t) {
-        if (s == t) return;
+        if (s == t) {
+            return;
+        }
         // visited是用来记录已经被访问的顶点，用来避免顶点被重复访问。
         boolean[] visited = new boolean[v];
         visited[s] = true;
@@ -99,7 +101,9 @@ public class Graph {
     }
 
     private void recurDfs(int w, int t, boolean[] visited, int[] prev) {
-        if (found == true) return;
+        if (found == true) {
+            return;
+        }
         visited[w] = true;
         if (w == t) {
             found = true;
