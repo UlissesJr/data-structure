@@ -16,7 +16,7 @@ public class PrintBinary {
     }
 
     public static void main(String[] args) {
-        int num = 2231;
+        int num = Integer.MIN_VALUE;
         print(num);
         // 00000000000000000000100010110111
         print(num<<20);
