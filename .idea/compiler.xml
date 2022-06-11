@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="struct" />
+        <module name="design-pattern" />
+        <module name="LG-Algorithm" />
+        <module name="algorithm_MCA" />
+        <module name="leet-code" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="algorithm_MCA" target="1.8" />
+      <module name="design-pattern" target="1.8" />
+      <module name="leet-code" target="8" />
+      <module name="LG-Algorithm" target="1.8" />
+      <module name="struct" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
