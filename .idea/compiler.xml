@@ -2,22 +2,27 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="struct" />
         <module name="design-pattern" />
-        <module name="LG-Algorithm" />
         <module name="algorithm_MCA" />
         <module name="leet-code" />
+        <module name="LG-Algorithm" />
+        <module name="concurrency_in_practice" />
+        <module name="others" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="algorithm_MCA" target="1.8" />
+      <module name="concurrency_in_practice" target="1.8" />
       <module name="design-pattern" target="1.8" />
       <module name="leet-code" target="8" />
       <module name="LG-Algorithm" target="1.8" />
+      <module name="others" target="1.8" />
       <module name="struct" target="8" />
     </bytecodeTargetLevel>
   </component>

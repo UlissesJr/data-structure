@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/design-pattern/pom.xml" />
         <option value="$PROJECT_DIR$/Algorithm_MCA/pom.xml" />
         <option value="$PROJECT_DIR$/LG-Algorithm/pom.xml" />
+        <option value="$PROJECT_DIR$/others/pom.xml" />
+        <option value="$PROJECT_DIR$/concurrency_in_practice/pom.xml" />
       </list>
     </option>
   </component>
