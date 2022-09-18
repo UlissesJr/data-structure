@@ -20,10 +20,10 @@
       <module name="algorithm_MCA" target="1.8" />
       <module name="concurrency_in_practice" target="1.8" />
       <module name="design-pattern" target="1.8" />
-      <module name="leet-code" target="8" />
+      <module name="leet-code" target="1.8" />
       <module name="LG-Algorithm" target="1.8" />
       <module name="others" target="1.8" />
-      <module name="struct" target="8" />
+      <module name="struct" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
