@@ -10,20 +10,12 @@
         <module name="struct" />
         <module name="design-pattern" />
         <module name="algorithm_MCA" />
+        <module name="W-Thread" />
         <module name="leet-code" />
         <module name="LG-Algorithm" />
         <module name="concurrency_in_practice" />
         <module name="others" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="algorithm_MCA" target="1.8" />
-      <module name="concurrency_in_practice" target="1.8" />
-      <module name="design-pattern" target="1.8" />
-      <module name="leet-code" target="1.8" />
-      <module name="LG-Algorithm" target="1.8" />
-      <module name="others" target="1.8" />
-      <module name="struct" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
