@@ -11,9 +11,11 @@
         <module name="design-pattern" />
         <module name="algorithm_MCA" />
         <module name="W-Thread" />
+        <module name="struct-self" />
         <module name="leet-code" />
         <module name="LG-Algorithm" />
         <module name="concurrency_in_practice" />
+        <module name="Bye-996" />
         <module name="others" />
       </profile>
     </annotationProcessing>
