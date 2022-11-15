@@ -11,12 +11,12 @@ public class DiningPhilosophers {
 
         private Object leftChopstick;
 
+        private Object rightChopstick;
+
         public Philosopher(Object leftChopstick, Object rightChopstick) {
             this.leftChopstick = leftChopstick;
             this.rightChopstick = rightChopstick;
         }
-
-        private Object rightChopstick;
 
         @Override
         public void run() {

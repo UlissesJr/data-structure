@@ -27,8 +27,6 @@ public class LiveLock {
 
         public synchronized void use() {
             System.out.printf("%s吃完了!", owner.name);
-
-
         }
     }
 
