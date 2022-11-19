@@ -1,23 +1,19 @@
 package top.luobogan.List;
 
 /**
- * 双向链表，有头尾指针
+ * 双向循环链表
  * Created by LuoboGan
- * Date:2022/11/15
+ * Date:2022/11/19
  */
-public class LinkedList<E> extends AbstractList<E> implements List<E> {
-
-    /**
-     * first 就是 index = 0 的节点
-     */
+public class CircleLinkedList<E> extends AbstractList<E> {
     private Node<E> first;
     private Node<E> last;
+    private Node<E> current;
 
     private static class Node<E> {
         E element;
         Node<E> prev;
         Node<E> next;
-
         public Node(Node<E> prev, E element, Node<E> next) {
             this.prev = prev;
             this.element = element;
@@ -44,28 +40,55 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 
             return sb.toString();
         }
+    }
 
+    public void reset() {
+        current = first;
+    }
+
+    public E next() {
+        if (current == null) {
+            return null;
+        }
+
+        current = current.next;
+        return current.element;
+    }
+
+    public E remove() {
+        if (current == null) {
+            return null;
+        }
+
+        Node<E> next = current.next;
+        E element = remove(current);
+        if (size == 0) {
+            current = null;
+        } else {
+            current = next;
+        }
+
+        return element;
     }
 
     @Override
     public void clear() {
+        size = 0;
         first = null;
         last = null;
-        size = 0;
     }
 
     @Override
     public E get(int index) {
-        Node<E> node = node(index);
-        return node.element;
+        return node(index).element;
     }
 
     @Override
     public E set(int index, E element) {
         Node<E> node = node(index);
-        E oldElement = node.element;
+        E old = node.element;
         node.element = element;
-        return oldElement;
+        return old;
     }
 
     @Override
@@ -76,22 +99,24 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
         // index == 0
         if (index == size) { // 往最后面添加元素
             Node<E> oldLast = last;
-            last = new Node<>(oldLast, element, null);
+            last = new Node<>(oldLast, element, first);
             if (oldLast == null) { // 这是链表添加的第一个元素
                 first = last;
+                first.next = first;
+                first.prev = first;
             } else {
                 oldLast.next = last;
+                first.prev = last;
             }
         } else {
             Node<E> next = node(index);
             Node<E> prev = next.prev;
             Node<E> node = new Node<>(prev, element, next);
             next.prev = node;
+            prev.next = node;
 
-            if (prev == null) { // index == 0
+            if (next == first) { // index == 0
                 first = node;
-            } else {
-                prev.next = node;
             }
         }
 
@@ -101,20 +126,26 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
     @Override
     public E remove(int index) {
         rangeCheck(index);
-        Node<E> node = node(index);
-        Node<E> prev = node.prev;
-        Node<E> next = node.next;
+        return remove(node(index));
+    }
 
-        if (prev == null) { // index == 0
-            first = next;
+    private E remove(Node<E> node) {
+        if (size == 1) {
+            first = null;
+            last = null;
         } else {
+            Node<E> prev = node.prev;
+            Node<E> next = node.next;
             prev.next = next;
-        }
-
-        if (next == null) { // index == size - 1
-            last = prev;
-        } else {
             next.prev = prev;
+
+            if (node == first) { // index == 0
+                first = next;
+            }
+
+            if (node == last) { // index == size - 1
+                last = prev;
+            }
         }
 
         size--;
@@ -123,20 +154,22 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 
     @Override
     public int indexOf(E element) {
-        if (element == null) {  // 1
+        if (element == null) {
             Node<E> node = first;
             for (int i = 0; i < size; i++) {
                 if (node.element == null) {
                     return i;
                 }
+
                 node = node.next;
             }
         } else {
             Node<E> node = first;
             for (int i = 0; i < size; i++) {
                 if (element.equals(node.element)) {
-                    return i; // n
+                    return i;
                 }
+
                 node = node.next;
             }
         }
@@ -145,7 +178,6 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 
     /**
      * 获取index位置对应的节点对象
-     *
      * @param index
      * @return
      */
@@ -176,11 +208,13 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
             if (i != 0) {
                 string.append(", ");
             }
+
             string.append(node);
+
             node = node.next;
         }
         string.append("]");
         return string.toString();
     }
-
 }
+

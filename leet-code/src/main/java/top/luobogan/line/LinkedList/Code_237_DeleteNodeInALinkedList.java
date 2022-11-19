@@ -1,4 +1,4 @@
-package top.luobogan.LinkedList;
+package top.luobogan.line.LinkedList;
 
 /**
  * https://leetcode.cn/problems/delete-node-in-a-linked-list/

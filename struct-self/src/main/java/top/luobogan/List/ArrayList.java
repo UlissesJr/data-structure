@@ -87,6 +87,9 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>{
             elements[i - 1] = elements[i];
         }
         elements[--size] = null;
+
+        trim();
+
         return old;
     }
 
@@ -144,6 +147,27 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>{
         System.out.println(oldCapacity + "扩容为" + newCapacity);
     }
 
+    /**
+     * 缩容
+     */
+    private void trim() {
+        // 30
+        int oldCapacity = elements.length;
+        // 15
+        int newCapacity = oldCapacity >> 1;
+        if (size >= (newCapacity) || oldCapacity <= DEFAULT_CAPACITY) {
+            return;
+        }
+
+        // 剩余空间还很多
+        E[] newElements = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newElements[i] = elements[i];
+        }
+        elements = newElements;
+
+        System.out.println(oldCapacity + "缩容为" + newCapacity);
+    }
     @Override
     public String toString() {
         // size=3, [99, 88, 77]
