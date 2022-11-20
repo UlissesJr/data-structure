@@ -20,6 +20,8 @@ public class QueueMain {
             System.out.println(queue.deQueue());
         }
 
+        java.util.Queue q;
+
 //		Deque<Integer> queue = new Deque<>();
 //		queue.enQueueFront(11);
 //		queue.enQueueFront(22);
