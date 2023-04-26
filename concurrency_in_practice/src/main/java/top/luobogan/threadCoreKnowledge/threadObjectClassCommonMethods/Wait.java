@@ -1,7 +1,7 @@
 package top.luobogan.threadCoreKnowledge.threadObjectClassCommonMethods;
 
 /**
- * 展示wait和notify的基本用法 1. 研究代码执行顺序 2. 证明wait释放锁
+ * 展示wait和notify的基本用法 1. 研究代码执行顺序 2. 证明 wait 释放锁
  * Created by LuoboGan
  * Date:2022-09-24
  */

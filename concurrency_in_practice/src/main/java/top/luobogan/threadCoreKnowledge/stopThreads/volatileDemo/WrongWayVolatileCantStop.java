@@ -43,7 +43,6 @@ class Producer implements Runnable {
         this.storage = storage;
     }
 
-
     @Override
     public void run() {
         int num = 0;

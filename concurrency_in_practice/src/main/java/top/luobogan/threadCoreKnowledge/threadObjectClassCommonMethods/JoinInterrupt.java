@@ -18,7 +18,7 @@ public class JoinInterrupt {
                     Thread.sleep(5000);
                     System.out.println("Thread1 finished.");
                 } catch (InterruptedException e) {
-                    System.out.println("子线程中断");
+                    System.out.println(Thread.currentThread().getName() + "子线程中断");
                 }
             }
         });
@@ -27,8 +27,9 @@ public class JoinInterrupt {
         try {
             thread1.join();
         } catch (InterruptedException e) {
+            // 虽然被join() 了 ，主线程依然可以响应中断
             System.out.println(Thread.currentThread().getName()+"主线程中断了");
-            thread1.interrupt();
+//            thread1.interrupt();
         }
         System.out.println("子线程已运行完毕");
     }

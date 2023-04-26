@@ -10,6 +10,29 @@ package top.luobogan.line.LinkedList;
  */
 public class Code_141_linkedListCycle {
 
+    public static void main(String[] args) {
+
+    }
+
+
+    public boolean hasCycle(ListNode head) {
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
     class ListNode {
         int val;
         ListNode next;
@@ -19,26 +42,5 @@ public class Code_141_linkedListCycle {
             next = null;
         }
     }
-
-
-    public boolean hasCycle(ListNode head) {
-
-        if(head == null || head.next == null){
-            return false;
-        }
-
-        // 到这里保证有两个节点
-        ListNode slow = head.next;
-        ListNode fast = head.next.next;
-        while(fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-            if(slow == fast){
-                return true;
-            }
-        }
-        return false;
-    }
-
 
 }

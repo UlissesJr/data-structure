@@ -22,7 +22,9 @@ public class BlockedWaitingTimedWaiting implements Runnable {
         System.out.println(thread1.getState());
         //打印出BLOCKED状态，因为thread2想拿得到sync()的锁却拿不到
         System.out.println(thread2.getState());
+
         try {
+            // 让线程1执行到 wait()；
             Thread.sleep(1300);
         } catch (InterruptedException e) {
             e.printStackTrace();

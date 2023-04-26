@@ -12,7 +12,6 @@ public class RunnableStyle implements Runnable{
         thread.start();
     }
 
-
     @Override
     public void run() {
         System.out.println("用Runnable方法实现线程");

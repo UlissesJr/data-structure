@@ -1,10 +1,10 @@
 package top.luobogan.stream;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.zhangxiaoxi.lambda.cart.CartService;
-import com.imooc.zhangxiaoxi.lambda.cart.Sku;
-import com.imooc.zhangxiaoxi.lambda.cart.SkuCategoryEnum;
 import org.junit.Test;
+import top.luobogan.lambda.cart.CartService;
+import top.luobogan.lambda.cart.Sku;
+import top.luobogan.lambda.cart.SkuCategoryEnum;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -104,7 +104,7 @@ public class StreamVs {
     @Test
     public void newCartHandle() {
         AtomicReference<Double> money =
-                new AtomicReference<>(Double.valueOf(0.0));
+                new AtomicReference<>(0.0);
 
         List<String> resultSkuNameList =
                 CartService.getCartSkuList()
@@ -137,13 +137,12 @@ public class StreamVs {
                 /**
                  * 获取商品名称
                  */
-                .map(sku -> sku.getSkuName())
+                .map(Sku::getSkuName)
 
                 /**
                  * 收集结果
                  */
                 .collect(Collectors.toList());
-
 
         /**
          * 打印输入结果

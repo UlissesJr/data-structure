@@ -10,7 +10,41 @@ package top.luobogan.line.LinkedList;
  */
 public class Code_83_RemoveDuplicatesFromSortedList {
 
-    public class ListNode {
+    public static void main(String[] args) {
+
+        ListNode head = new ListNode(1,new ListNode(1,new ListNode(2,null)));
+        deleteDuplicates(head);
+
+    }
+
+    public static ListNode deleteDuplicates(ListNode head) {
+
+        // 虚拟头节点
+        ListNode dummy = new ListNode(Integer.MIN_VALUE);
+        dummy.next = head;
+
+        // 快慢指针
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+
+        while( fast != null ){
+            if(slow.val != fast.val){
+                ListNode tmp = slow;
+                slow = fast;
+                tmp.next = fast;
+            }
+
+            fast = fast.next;
+        }
+
+        // 对最后一个节点做特殊处理
+        slow.next = null;
+
+        return dummy.next;
+
+    }
+
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -23,10 +57,6 @@ public class Code_83_RemoveDuplicatesFromSortedList {
             this.val = val;
             this.next = next;
         }
-    }
-
-    public ListNode deleteDuplicates(ListNode head) {
-        return null;
     }
 
 }

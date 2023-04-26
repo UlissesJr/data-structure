@@ -1,9 +1,5 @@
 package top.luobogan.fun;
 
-import com.sun.org.apache.xpath.internal.operations.Minus;
-
-import java.util.*;
-
 /**
  * Created by LuoboGan
  * 给定一个二元组（x1,y1）...(xn,yn), 已经按照x从小到大排好序了, 求yi+yj + |xi-xj|的最大值（i!=j）.

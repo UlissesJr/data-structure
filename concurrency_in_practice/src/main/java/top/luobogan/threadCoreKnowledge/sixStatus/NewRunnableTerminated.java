@@ -14,7 +14,7 @@ public class NewRunnableTerminated implements Runnable {
         thread.start();
         System.out.println(thread.getState());
         try {
-            Thread.sleep(10);
+            Thread.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

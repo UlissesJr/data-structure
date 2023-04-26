@@ -6,14 +6,14 @@
       <list>
         <option value="$PROJECT_DIR$/leet-code/pom.xml" />
         <option value="$PROJECT_DIR$/struct/pom.xml" />
-        <option value="$PROJECT_DIR$/design-pattern/pom.xml" />
         <option value="$PROJECT_DIR$/Algorithm_MCA/pom.xml" />
         <option value="$PROJECT_DIR$/LG-Algorithm/pom.xml" />
         <option value="$PROJECT_DIR$/others/pom.xml" />
         <option value="$PROJECT_DIR$/concurrency_in_practice/pom.xml" />
-        <option value="$PROJECT_DIR$/W-Thread/pom.xml" />
         <option value="$PROJECT_DIR$/Bye-996/pom.xml" />
         <option value="$PROJECT_DIR$/struct-self/pom.xml" />
+        <option value="$PROJECT_DIR$/W-design-pattern/pom.xml" />
+        <option value="$PROJECT_DIR$/JUCPractice/pom.xml" />
       </list>
     </option>
   </component>

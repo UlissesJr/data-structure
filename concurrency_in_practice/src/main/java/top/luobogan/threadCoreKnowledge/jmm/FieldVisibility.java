@@ -6,16 +6,13 @@ package top.luobogan.threadCoreKnowledge.jmm;
  * Date:2022/10/15
  */
 public class FieldVisibility {
-
     int a = 1;
-    volatile int b = 2;
+    int b = 2;
 
     private void change() {
         a = 3;
         b = a;
     }
-
-
     private void print() {
         System.out.println("b=" + b + ";a=" + a);
     }

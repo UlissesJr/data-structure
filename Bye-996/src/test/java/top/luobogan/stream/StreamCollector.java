@@ -1,9 +1,9 @@
 package top.luobogan.stream;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.zhangxiaoxi.lambda.cart.CartService;
-import com.imooc.zhangxiaoxi.lambda.cart.Sku;
 import org.junit.Test;
+import top.luobogan.lambda.cart.CartService;
+import top.luobogan.lambda.cart.Sku;
 
 import java.util.List;
 import java.util.Map;

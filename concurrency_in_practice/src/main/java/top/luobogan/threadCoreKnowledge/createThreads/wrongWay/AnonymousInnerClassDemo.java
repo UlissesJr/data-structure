@@ -21,7 +21,6 @@ public class AnonymousInnerClassDemo {
                 System.out.println(Thread.currentThread().getName());
             }
         }).start();
-
     }
 
 }

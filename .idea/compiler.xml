@@ -8,16 +8,26 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="struct" />
-        <module name="design-pattern" />
+        <module name="W-design-pattern" />
         <module name="algorithm_MCA" />
-        <module name="W-Thread" />
         <module name="struct-self" />
         <module name="leet-code" />
+        <module name="JUCPractice" />
         <module name="LG-Algorithm" />
         <module name="concurrency_in_practice" />
         <module name="Bye-996" />
         <module name="others" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="design-pattern" target="1.8" />
+      <module name="W-Thread" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Bye-996" options="-parameters" />
+      <module name="W-design-pattern" options="-parameters" />
+    </option>
   </component>
 </project>

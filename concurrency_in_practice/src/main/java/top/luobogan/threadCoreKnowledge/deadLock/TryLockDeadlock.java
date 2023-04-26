@@ -55,7 +55,6 @@ public class TryLockDeadlock implements Runnable {
                 try {
                     if (lock2.tryLock(3000, TimeUnit.MILLISECONDS)) {
                         System.out.println("线程2获取到了锁2");
-
                         Thread.sleep(new Random().nextInt(1000));
                         if (lock1.tryLock(3000, TimeUnit.MILLISECONDS)) {
                             System.out.println("线程2获取到了锁1");

@@ -1,7 +1,7 @@
 package top.luobogan.threadCoreKnowledge.threadObjectClassCommonMethods;
 
 /**
- * ID从1开始，JVM运行起来后，我们自己创建的线程的ID早已不是2.
+ * ID从0开始，JVM运行起来后，我们自己创建的线程的ID早已不是2.
  * Created by LuoboGan
  * Date:2022-09-25
  */

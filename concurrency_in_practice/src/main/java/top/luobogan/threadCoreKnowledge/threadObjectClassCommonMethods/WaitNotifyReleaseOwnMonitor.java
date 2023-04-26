@@ -1,7 +1,5 @@
 package top.luobogan.threadCoreKnowledge.threadObjectClassCommonMethods;
 
-import lombok.SneakyThrows;
-
 /**
  * 证明wait只释放当前的那把锁
  * Created by LuoboGan

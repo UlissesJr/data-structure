@@ -8,7 +8,6 @@ package top.luobogan.threadCoreKnowledge.stopThreads;
  * Date:2022-09-19
  */
 public class StopThread implements Runnable {
-
     @Override
     public void run() {
         //模拟指挥军队：一共有5个连队，每个连队10人，以连队为单位，发放武器弹药，叫到号的士兵前去领取

@@ -72,7 +72,7 @@ public class CartService {
     public static List<Sku> filterElectronicsSkus(
             List<Sku> cartSkuList) {
 
-        List<Sku> result = new ArrayList<Sku>();
+        List<Sku> result = new ArrayList<>();
         for (Sku sku : cartSkuList) {
             // 如果商品类型 等于 电子类
             if (SkuCategoryEnum.ELECTRONICS.

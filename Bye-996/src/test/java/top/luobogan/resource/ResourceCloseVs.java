@@ -1,7 +1,7 @@
 package top.luobogan.resource;
 
-import com.imooc.zhangxiaoxi.lambda.file.FileConsumer;
 import org.junit.Test;
+import top.luobogan.lambda.file.FileConsumer;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

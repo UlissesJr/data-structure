@@ -39,7 +39,6 @@ public class TransferMoney implements Runnable {
 
     public static void transferMoney(Account from, Account to, int amount) {
         class Helper {
-
             public void transfer() {
                 if (from.balance - amount < 0) {
                     System.out.println("余额不足，转账失败。");
@@ -80,11 +79,11 @@ public class TransferMoney implements Runnable {
 
     static class Account {
 
+        int balance;
+
         public Account(int balance) {
             this.balance = balance;
         }
-
-        int balance;
 
     }
 }

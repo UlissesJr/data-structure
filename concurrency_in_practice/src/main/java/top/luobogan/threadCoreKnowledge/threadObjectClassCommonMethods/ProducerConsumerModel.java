@@ -13,8 +13,10 @@ public class ProducerConsumerModel {
         EventStorage eventStorage = new EventStorage();
         Producer producer = new Producer(eventStorage);
         Consumer consumer = new Consumer(eventStorage);
+        Consumer consumer2 = new Consumer(eventStorage);
         new Thread(producer).start();
         new Thread(consumer).start();
+//        new Thread(consumer2).start();
     }
 }
 
@@ -29,7 +31,7 @@ class Producer implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             storage.put();
         }
     }
@@ -46,7 +48,7 @@ class Consumer implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             storage.take();
         }
     }
@@ -72,7 +74,7 @@ class EventStorage {
         }
         storage.add(new Date());
         System.out.println("仓库里有了" + storage.size() + "个产品。");
-        notify();
+        notifyAll();
     }
 
     public synchronized void take() {
@@ -84,6 +86,6 @@ class EventStorage {
             }
         }
         System.out.println("拿到了" + storage.poll() + "，现在仓库还剩下" + storage.size());
-        notify();
+        notifyAll();
     }
 }

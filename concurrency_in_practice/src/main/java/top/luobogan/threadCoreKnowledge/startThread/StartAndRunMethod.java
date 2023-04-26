@@ -6,7 +6,6 @@ package top.luobogan.threadCoreKnowledge.startThread;
  * Date:2022-09-17
  */
 public class StartAndRunMethod {
-
     public static void main(String[] args) {
         Runnable runnable = () -> {
             System.out.println(Thread.currentThread().getName());

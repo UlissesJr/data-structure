@@ -1,11 +1,11 @@
 package top.luobogan.stream;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.zhangxiaoxi.lambda.cart.CartService;
-import com.imooc.zhangxiaoxi.lambda.cart.Sku;
-import com.imooc.zhangxiaoxi.lambda.cart.SkuCategoryEnum;
 import org.junit.Before;
 import org.junit.Test;
+import top.luobogan.lambda.cart.CartService;
+import top.luobogan.lambda.cart.Sku;
+import top.luobogan.lambda.cart.SkuCategoryEnum;
 
 import java.util.*;
 
@@ -27,7 +27,6 @@ public class StreamOperator {
     @Test
     public void filterTest() {
         list.stream()
-
                 // filter
                 .filter(sku ->
                         SkuCategoryEnum.BOOKS

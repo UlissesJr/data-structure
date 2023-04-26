@@ -8,7 +8,6 @@ package top.luobogan.threadCoreKnowledge.threadObjectClassCommonMethods;
 public class WaitNotifyPrintOddEvenSyn {
 
     private static int count;
-
     private static final Object lock = new Object();
 
     //新建2个线程

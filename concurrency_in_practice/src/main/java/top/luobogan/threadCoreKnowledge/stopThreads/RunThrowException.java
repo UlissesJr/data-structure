@@ -9,6 +9,7 @@ package top.luobogan.threadCoreKnowledge.stopThreads;
  */
 public class RunThrowException {
 
+    // 普通方法可以向外抛异常
     public void aVoid() throws Exception {
         throw new Exception();
     }
@@ -16,6 +17,7 @@ public class RunThrowException {
     public static void main(String[] args) {
         new Thread(new Runnable() {
             @Override
+            // 父类为 public abstract void run(); 所以无法抛异常，只能捕获
             public void run()  {
                 try {
                     throw new Exception();

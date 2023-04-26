@@ -9,7 +9,6 @@ import java.util.Map;
  * Date:2022-09-25
  */
 public class MultiThreadsError3 {
-
     private Map<String, String> states;
 
     public MultiThreadsError3() {

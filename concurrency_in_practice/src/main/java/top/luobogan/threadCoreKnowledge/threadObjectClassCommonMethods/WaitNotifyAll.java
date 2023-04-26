@@ -8,7 +8,6 @@ package top.luobogan.threadCoreKnowledge.threadObjectClassCommonMethods;
 public class WaitNotifyAll implements Runnable {
 
     private static final Object resourceA = new Object();
-
     public static void main(String[] args) throws InterruptedException {
 
         Runnable r = new WaitNotifyAll();
