@@ -1,16 +1,16 @@
 package top.luobogan.array;
 
 /**
+ * https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
+ * 删除有序数组中的重复项
  * Created by LuoboGan
  * Date:2023/2/24
  */
-public class Code_26_removeDuplicatesFromSortedArray {
+public class Easy_26_removeDuplicatesFromSortedArray {
 
     public static void main(String[] args) {
 
-
     }
-
 
     public int removeDuplicates(int[] nums) {
 
@@ -27,9 +27,7 @@ public class Code_26_removeDuplicatesFromSortedArray {
             }
             fast++;
         }
-
         return slow + 1;
-
     }
 
 }

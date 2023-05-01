@@ -1,14 +1,12 @@
 package top.luobogan.line.LinkedList;
 
-import java.util.List;
-
 /**
  * https://leetcode.cn/problems/middle-of-the-linked-list/
  * Created by LuoboGan
  * Date:2022/11/16
  * 给定链表的结点数介于 1 和 100 之间。
  */
-public class Code_876_MiddleOfTheLinkedList {
+public class Easy_876_MiddleOfTheLinkedList {
 
     public static void main(String[] args) {
 

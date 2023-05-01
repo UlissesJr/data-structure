@@ -5,10 +5,13 @@ import java.util.NoSuchElementException;
 /**
  * Created by LuoboGan
  * Date:2023/3/27
+ * 静态内部类可以有静态成员（方法和属性），而非静态内部类则不能有静态成员（成员或属性）。
+ * 静态内部类只能够访问外部类的静态成员和静态方法，而非静态内部类则可以访问外部类的所有成员（方法和属性）。
  */
 public class MyLinkedList<E> implements Iterable<E> {
     // 虚拟头尾节点
     final private Node<E> head, tail;
+    // 实际存储的元素个数
     private int size;
 
     // 双链表节点
@@ -38,10 +41,10 @@ public class MyLinkedList<E> implements Iterable<E> {
         Node<E> x = new Node<>(e);
         Node<E> temp = tail.prev;
         // temp <-> tail
-        temp.next = x;
         x.prev = temp;
-
         x.next = tail;
+
+        temp.next = x;
         tail.prev = x;
         // temp <-> x <-> tail
         size++;
@@ -51,11 +54,11 @@ public class MyLinkedList<E> implements Iterable<E> {
         Node<E> x = new Node<>(e);
         Node<E> temp = head.next;
         // head <-> temp
-        temp.prev = x;
         x.next = temp;
-
-        head.next = x;
         x.prev = head;
+
+        temp.prev = x;
+        head.next = x;
         // head <-> x <-> temp
         size++;
     }
@@ -80,7 +83,6 @@ public class MyLinkedList<E> implements Iterable<E> {
 
         x.prev = temp;
         x.next = p;
-
         // temp <-> x <-> p
 
         size++;

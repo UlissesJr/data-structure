@@ -5,7 +5,7 @@ package top.luobogan.line.LinkedList;
  * Created by LuoboGan
  * Date:2023/2/24
  */
-public class Code_160_intersectionOfTwoLinkedLists {
+public class Easy_160_intersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
 

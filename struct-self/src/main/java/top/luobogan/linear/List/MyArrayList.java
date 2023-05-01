@@ -91,16 +91,12 @@ public class MyArrayList<E> implements Iterable<E> {
             resize(cap / 2);
         }
 
-        E deletedVal = data[index];
-        // 搬移数据 data[index+1..] -> data[index..]
-        System.arraycopy(data, index + 1,
-                data, index,
-                size - index - 1);
-
-        data[size - 1] = null;
+        E oldValue = data[index];
+        // 数据搬移
+        System.arraycopy(data,index+1,data,index,size-index-1);
+        data[size-1] = null;
         size--;
-
-        return deletedVal;
+        return oldValue;
     }
 
     public E removeFirst() {
@@ -141,17 +137,20 @@ public class MyArrayList<E> implements Iterable<E> {
         }
         E[] temp = (E[]) new Object[newCap];
 
-        for (int i = 0; i < size; i++) {
-            temp[i] = data[i];
-        }
-        // System.arraycopy(data, 0, temp, 0, size);
+        System.arraycopy(data, 0, temp, 0, size);
         data = temp;
     }
 
+    /**
+     * 校验元素位置是否合法
+     */
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
     }
 
+    /**
+     * 校验是否可以添加元素
+     */
     private boolean isPositionIndex(int index) {
         return index >= 0 && index <= size;
     }

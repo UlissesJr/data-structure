@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * Created by LuoboGan
  * Date:2023/2/22
  */
-public class Code_23_mergeKSortedLists {
+public class Hard_23_mergeKSortedLists {
 
     public static void main(String[] args) {
 
@@ -29,22 +29,27 @@ public class Code_23_mergeKSortedLists {
         PriorityQueue<ListNode> pq = new PriorityQueue<>(
                 lists.length, (a, b)->(a.val - b.val));
         // 将 k 个链表的头结点加入最小堆
-        for (ListNode head : lists) {
-            if (head != null) {
+        for(ListNode head : lists){
+            if (head != null)
                 pq.add(head);
-            }
         }
 
-        while (!pq.isEmpty()) {
+        // 队列不为空，就往外取元素
+        while(!pq.isEmpty()){
             // 获取最小节点，接到结果链表中
-            ListNode node = pq.poll();
-            p.next = node;
-            if (node.next != null) {
-                pq.add(node.next);
+            ListNode minist = pq.poll();
+            p.next = minist;
+
+            if (minist.next != null) {
+                pq.add(minist.next);
             }
-            // p 指针不断前进
+
+            // 记得断开不必要的链接
+            minist.next = null;
+            // p 前进一个节点
             p = p.next;
         }
+
         return dummy.next;
     }
 

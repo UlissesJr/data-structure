@@ -1,10 +1,12 @@
 package top.luobogan.array;
 
 /**
+ * https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/
+ * 只要数组有序，就应该想到双指针技巧。
  * Created by LuoboGan
  * Date:2023/2/28
  */
-public class Code_167_twoSumIIInputArrayIsSorted {
+public class Medium_167_twoSumIIInputArrayIsSorted {
 
     public static void main(String[] args) {
 

@@ -8,7 +8,7 @@ package top.luobogan.line.LinkedList;
  * -100 <= Node.val <= 100
  * 题目数据保证链表已经按升序 排列
  */
-public class Code_83_RemoveDuplicatesFromSortedList {
+public class Easy_83_RemoveDuplicatesFromSortedList {
 
     public static void main(String[] args) {
 
