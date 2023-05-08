@@ -10,6 +10,12 @@ import java.util.Map;
  */
 public class Medium_567_permutationInString {
 
+    /**
+     * 本题移动 left 缩小窗口的时机是窗口大小大于 t.size() 时，因为排列嘛，显然长度应该是一样的。
+     * 当发现 valid == need.size() 时，就说明窗口中就是一个合法的排列，所以立即返回 true。
+     * note：这道题中 [left, right) 其实维护的是一个定长的窗口，窗口大小为 t.size()。
+     */
+
     public static void main(String[] args) {
         String s1 = "aa";
         String s2 = "eidabaooo";
@@ -34,8 +40,6 @@ public class Medium_567_permutationInString {
         // valid 变量表示窗口中满足 need 条件的字符个数
         // 如果 valid 和 need.size 的大小相同，则说明窗口已满足条件，已经完全覆盖了串 T。
         int valid = 0;
-        // 记录最小覆盖子串的起始索引及长度
-        int start = 0, len = Integer.MAX_VALUE;
 
         while (right < s2.length()) {
             // c 是将移入窗口的字符

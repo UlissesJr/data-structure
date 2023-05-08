@@ -12,10 +12,15 @@ public class Medium_167_twoSumIIInputArrayIsSorted {
 
     }
 
+    /**
+     * 只要数组有序，就应该想到双指针技巧。
+     * 这道题的解法有点类似二分查找，通过调节 left 和 right 就可以调整 sum 的大小
+     */
+
     public static int[] twoSum(int[] numbers, int target) {
 
         // 一左一右两个指针相向而行
-        int left = 0 , right = numbers.length -1;
+        int left = 0 , right = numbers.length - 1;
 
         while(left < right){
             int sum = numbers[left] + numbers[right];
@@ -28,9 +33,6 @@ public class Medium_167_twoSumIIInputArrayIsSorted {
                 right -= 1;
             }
         }
-
         return new int[]{-1, -1};
-
     }
-
 }

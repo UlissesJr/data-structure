@@ -5,7 +5,7 @@ package top.luobogan.line.string;
  * Created by LuoboGan
  * Date:2023/2/28
  */
-public class Code_5_longestPalindromicSubstring {
+public class Medium_5_longestPalindromicSubstring {
 
     public static void main(String[] args) {
         String s = "bb";
@@ -19,6 +19,7 @@ public class Code_5_longestPalindromicSubstring {
             // 以 s[i] 为中心的最长回文子串
             String s1 = palindrome(s, i, i);
             // 以 s[i] 和 s[i+1] 为中心的最长回文子串
+            // 不会有越界的问题，因为subString函数 左闭右开；
             String s2 = palindrome(s, i, i + 1);
             // res = longest(res, s1, s2)
             res = res.length() > s1.length() ? res : s1;
@@ -29,8 +30,6 @@ public class Code_5_longestPalindromicSubstring {
 
     // 在 s 中寻找以 s[l] 和 s[r] 为中心的最长回文串
     static String palindrome(String s, int l, int r) {
-
-
         // 防止索引越界
         while (l >= 0 && r < s.length()
                 && s.charAt(l) == s.charAt(r)) {
