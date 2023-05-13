@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  */
 public class SafePetStore {
     //共享数据区，实例对象
-    private static SafeDataBuffer<IGoods> notSafeDataBuffer = new SafeDataBuffer();
+    private static SafeDataBuffer<IGoods> safeDataBuffer = new SafeDataBuffer();
 
     //生产者执行的动作
     static Callable<IGoods> produceAction = () ->
@@ -23,7 +23,8 @@ public class SafePetStore {
         IGoods goods = Goods.produceOne();
         //将商品加上共享数据区
         try {
-            notSafeDataBuffer.add(goods);
+            // 因为是safeDataBuffer调用的add（），所以sync里面的this为safeDataBuffer对象；
+            safeDataBuffer.add(goods);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +36,7 @@ public class SafePetStore {
         // 从PetStore获取商品
         IGoods goods = null;
         try {
-            goods = notSafeDataBuffer.fetch();
+            goods = safeDataBuffer.fetch();
 
         } catch (Exception e) {
             e.printStackTrace();

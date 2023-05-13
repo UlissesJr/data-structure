@@ -10,10 +10,10 @@ import static top.luobogan.threadCoreKnowledge.utils.ThreadUtil.sleepMilliSecond
 
 /**
  * 生产者任务的定义
- * Created by 尼恩@疯狂创客圈.
+ * Created by Luobogan.
  */
 public class Producer implements Runnable {
-    //生产的时间间隔，产一次等待的时间，默认为200ms
+    //生产的时间间隔，生产一次等待的时间，默认为200ms
     public static final int PRODUCE_GAP = 200;
 
     //总次数
@@ -40,20 +40,17 @@ public class Producer implements Runnable {
             this.gap = PRODUCE_GAP;
         }
         name = "生产者-" + PRODUCER_NO.incrementAndGet();
-
     }
 
     public Producer(Callable action) {
         this.action = action;
         this.gap = PRODUCE_GAP;
         name = "生产者-" + PRODUCER_NO.incrementAndGet();
-
     }
 
     @Override
     public void run() {
         while (true) {
-
             try {
                 //执行生产动作
                 Object out = action.call();

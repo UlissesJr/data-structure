@@ -16,6 +16,30 @@ public class Task<R> {
     // worker ID
     private int workerId;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getWorkerId() {
+        return workerId;
+    }
+
+    public void setWorkerId(int workerId) {
+        this.workerId = workerId;
+    }
+
+    public R getResult() {
+        return result;
+    }
+
+    public void setResult(R result) {
+        this.result = result;
+    }
+
     //计算结果
     R result = null;
 

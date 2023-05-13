@@ -1,4 +1,4 @@
-package top.luobogan.threadCoreKnowledge.producerAndConsumer;
+package top.luobogan.threadCoreKnowledge.lock;
 
 import top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.actor.Consumer;
 import top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.actor.Producer;
@@ -12,11 +12,16 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static top.luobogan.threadCoreKnowledge.utils.ThreadUtil.sleepSeconds;
 
 /**
- * Created by Luobogan.
+ * Created by Oliveira.
  */
-public class CommunicatePetStore {
+public class ReentrantLockPetStore {
 
     public static final int MAX_AMOUNT = 10; //数据区长度
 
@@ -26,33 +31,38 @@ public class CommunicatePetStore {
         //保存数据
         private List<T> dataList = new LinkedList<>();
         //保存数量
-        private volatile int amount = 0;
+        private volatile Integer amount = 0;
 
-        private final Object LOCK_OBJECT = new Object();
-        private final Object NOT_FULL = new Object();
-        private final Object NOT_EMPTY = new Object();
+
+        public static final Lock LOCK_OBJECT = new ReentrantLock();
+        public static final Condition NOT_FULL = LOCK_OBJECT.newCondition();
+        public static final Condition NOT_EMPTY = LOCK_OBJECT.newCondition();
 
         // 向数据区增加一个元素
         public void add(T element) throws Exception {
-            synchronized (NOT_FULL) {
-                while (amount >= MAX_AMOUNT) {
+            LOCK_OBJECT.lock();
+            try {
+                while (amount > MAX_AMOUNT) {
                     Print.tcfo("队列已经满了！");
                     //等待未满通知
-                    NOT_FULL.wait();
+                    NOT_FULL.await();
                 }
+            } finally {
+                LOCK_OBJECT.unlock();
             }
-            synchronized (LOCK_OBJECT) {
 
-                if (amount < MAX_AMOUNT) { // 加上双重检查，模拟双检锁在单例模式中应用
+
+            LOCK_OBJECT.lock();
+            try {
+                if (amount <= MAX_AMOUNT) {
                     dataList.add(element);
                     amount++;
+                    //发送未空通知
+                    NOT_EMPTY.signal();
                 }
+            } finally {
+                LOCK_OBJECT.unlock();
             }
-            synchronized (NOT_EMPTY) {
-                //发送未空通知
-                NOT_EMPTY.notify();
-            }
-
 
         }
 
@@ -60,27 +70,35 @@ public class CommunicatePetStore {
          * 从数据区取出一个商品
          */
         public T fetch() throws Exception {
-            synchronized (NOT_EMPTY) {
+            LOCK_OBJECT.lock();
+            try {
                 while (amount <= 0) {
                     Print.tcfo("队列已经空了！");
                     //等待未空通知
-                    NOT_EMPTY.wait();
+                    NOT_EMPTY.await();
                 }
+            } finally {
+                LOCK_OBJECT.unlock();
             }
+
 
             T element = null;
-            synchronized (LOCK_OBJECT) {
-                if (amount > 0) {  // 加上双重检查，模拟双检锁在单例模式中应用
+            LOCK_OBJECT.lock();
+            try {
+                if (amount > 0) {
                     element = dataList.remove(0);
                     amount--;
+
+                    //发送未满通知
+                    NOT_FULL.signal();
                 }
+                return element;
+
+            } finally {
+                LOCK_OBJECT.unlock();
             }
 
-            synchronized (NOT_FULL) {
-                //发送未满通知
-                NOT_FULL.notify();
-            }
-            return element;
+
         }
     }
 
@@ -105,6 +123,7 @@ public class CommunicatePetStore {
         {
             // 从PetStore获取商品
             IGoods goods = null;
+
             goods = dateBuffer.fetch();
             return goods;
         };
@@ -119,13 +138,13 @@ public class CommunicatePetStore {
 
         for (int i = 0; i < PRODUCE_TOTAL; i++) {
             //生产者线程每生产一个商品，间隔50ms
-            threadPool.submit(new Producer(produceAction, 10));
+            threadPool.submit(new Producer(produceAction, 50));
         }
         for (int i = 0; i < CONSUMER_TOTAL; i++) {
             //消费者线程每消费一个商品，间隔100ms
             threadPool.submit(new Consumer(consumerAction, 100));
         }
-
+        sleepSeconds(Integer.MAX_VALUE);
     }
 
 }

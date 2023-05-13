@@ -1,9 +1,9 @@
-package top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore;
+package top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.store;
 
 import top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.goods.IGoods;
 
 /**
- * Created by 尼恩@疯狂创客圈.
+ * Created by Luobogan.
  */
 
 public class CartItem {

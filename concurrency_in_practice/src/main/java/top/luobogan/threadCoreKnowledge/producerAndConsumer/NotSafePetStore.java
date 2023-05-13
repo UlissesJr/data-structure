@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by 尼恩@疯狂创客圈.
+ * Created by Luobogan.
  */
 public class NotSafePetStore {
     //共享数据区，实例对象

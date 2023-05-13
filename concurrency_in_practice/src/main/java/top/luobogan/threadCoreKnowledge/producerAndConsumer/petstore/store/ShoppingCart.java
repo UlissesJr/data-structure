@@ -1,6 +1,5 @@
 package top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.store;
 
-import top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.CartItem;
 import top.luobogan.threadCoreKnowledge.producerAndConsumer.petstore.goods.IGoods;
 import top.luobogan.threadCoreKnowledge.utils.Print;
 
