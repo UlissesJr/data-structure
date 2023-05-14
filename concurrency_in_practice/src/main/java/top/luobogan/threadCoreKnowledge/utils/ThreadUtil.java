@@ -92,9 +92,9 @@ public class ThreadUtil {
 //     *
 //     * @return
 //     */
-//    public static ThreadPoolExecutor getCpuIntenseTargetThreadPool() {
-//        return CpuIntenseTargetThreadPoolLazyHolder.getInnerExecutor();
-//    }
+    public static ThreadPoolExecutor getCpuIntenseTargetThreadPool() {
+        return CpuIntenseTargetThreadPoolLazyHolder.getInnerExecutor();
+    }
 
 
     /**
@@ -102,9 +102,9 @@ public class ThreadUtil {
      *
      * @return
      */
-//    public static ThreadPoolExecutor getIoIntenseTargetThreadPool() {
-//        return IoIntenseTargetThreadPoolLazyHolder.getInnerExecutor();
-//    }
+    public static ThreadPoolExecutor getIoIntenseTargetThreadPool() {
+        return IoIntenseTargetThreadPoolLazyHolder.getInnerExecutor();
+    }
 
 
     /**
