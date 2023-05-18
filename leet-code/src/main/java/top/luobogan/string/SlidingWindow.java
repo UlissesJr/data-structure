@@ -15,7 +15,7 @@ public class SlidingWindow {
 //        while (right < s.size()) {
 //            // c 是将移入窗口的字符
 //            char c = s[right];
-//            winodw.add(c)
+//            window.add(c)
 //            // 增大窗口
 //            right++;
 //            // 进行窗口内数据的一系列更新

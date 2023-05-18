@@ -34,6 +34,7 @@ public class BSAwesome {
      * arr 整体无序，且相邻的数不相等
      */
     public static int oneMinIndex(int[] arr){
+
         if(arr == null || arr.length ==0){
             return -1;
         }
@@ -44,10 +45,13 @@ public class BSAwesome {
         if(n == 2){
             return arr[0] < arr[1] ? 0 : 1 ;
         }
+
+        // 下面都是包含三个数及以上的情况
         if(arr[n-1] < arr[n-2]){
             return n-1;
         }
 
+        // 左闭右闭区间
         int L = 0;
         int R = n - 1;
         int mid = -1;

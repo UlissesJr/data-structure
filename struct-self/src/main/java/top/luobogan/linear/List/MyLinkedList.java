@@ -19,7 +19,6 @@ public class MyLinkedList<E> implements Iterable<E> {
         E val;
         Node<E> next;
         Node<E> prev;
-
         Node(E val) {
             this.val = val;
         }

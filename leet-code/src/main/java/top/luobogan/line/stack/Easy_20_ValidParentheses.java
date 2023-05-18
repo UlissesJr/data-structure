@@ -6,10 +6,11 @@ import java.util.Stack;
 /**
  * https://leetcode.cn/problems/valid-parentheses/
  * 有效的括号
+ * 遇到左括号就入栈，遇到右括号就去栈中寻找最近的左括号，看是否匹配。
  * Created by LuoboGan
  * Date:2022/11/19
  */
-public class Code_20_ValidParentheses {
+public class Easy_20_ValidParentheses {
 
     private static HashMap<Character,Character> map = new HashMap<>();
 
@@ -38,11 +39,32 @@ public class Code_20_ValidParentheses {
 //        return s.isEmpty();
 //    }
 
+    public boolean isValid(String str) {
+        Stack<Character> left = new Stack<>();
+        for (char c : str.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[')
+                left.push(c);
+            else // 字符 c 是右括号
+                if (!left.isEmpty() && leftOf(c) == left.peek())
+                    left.pop();
+                else
+                    // 和最近的左括号不匹配
+                    return false;
+        }
+        // 是否所有的左括号都被匹配了
+        return left.isEmpty();
+    }
+
+    char leftOf(char c) {
+        if (c == '}') return '{';
+        if (c == ')') return '(';
+        return '[';
+    }
 
     /**
      * 解法二，使用栈
      */
-    public boolean isValid(String s) {
+    public boolean isValid2(String s) {
 
         Stack<Character> stack = new Stack<>();
         int length = s.length();

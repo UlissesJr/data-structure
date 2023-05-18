@@ -57,7 +57,7 @@ public class ReverseList {
         if (head == null) {
             return null;
         }
-        ArrayList<Node> list = new ArrayList<>();
+        ArrayList<Node> list = new ArrayList<Node>();
         while (head != null) {
             list.add(head);
             head = head.next;
@@ -74,7 +74,7 @@ public class ReverseList {
         if (head == null) {
             return null;
         }
-        ArrayList<DoubleNode> list = new ArrayList<>();
+        ArrayList<DoubleNode> list = new ArrayList<DoubleNode>();
         while (head != null) {
             list.add(head);
             head = head.next;

@@ -13,7 +13,7 @@ import java.util.Stack;
  * int peek() 返回队列开头的元素
  * boolean empty() 如果队列为空，返回 true ；否则，返回 false
  */
-public class Code_232_ImplementQueueUsingStacks {
+public class Easy_232_ImplementQueueUsingStacks {
 
     /**
      * Your MyQueue object will be instantiated and called as such:
@@ -27,7 +27,7 @@ public class Code_232_ImplementQueueUsingStacks {
     private Stack<Integer> inStack = new Stack<>();
     private Stack<Integer> outStack = new Stack<>();
 
-    public Code_232_ImplementQueueUsingStacks() {
+    public Easy_232_ImplementQueueUsingStacks() {
 
     }
 

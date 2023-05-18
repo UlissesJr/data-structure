@@ -53,26 +53,20 @@ public class Code_206_ReverseLinkedList {
 
     /**
      * 采用迭代-头插法 实现链表反转
-     * @param head
-     * @return
+     * 这是一种双指针的解法
      */
     public ListNode reverseList2(ListNode head) {
 
-        // 初始时，newHead为null
-        ListNode newHead = null;
+        ListNode pre = null;
+        ListNode next = null;
         while( head != null ){
-            // tmp 作为一个指针，防止链表断裂
-            ListNode tmp = head.next;
-            head.next = newHead;
-            newHead = head;
-            head = tmp;
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
         }
 
-        return newHead;
+        return pre;
     }
-
-
-
-
 
 }
