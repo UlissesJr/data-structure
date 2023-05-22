@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
-import static com.crazymakercircle.util.ThreadUtil.yieldThread;
+import static top.luobogan.threadCoreKnowledge.utils.ThreadUtil.yieldThread;
 
 public class CLHLock implements Lock {
 

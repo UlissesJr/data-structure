@@ -12,7 +12,6 @@ public class Master<T extends Task, R> {
     // 所有worker的集合
     private HashMap<String, Worker<T, R>> workers = new HashMap<>();
 
-
     // 任务的集合
     private LinkedBlockingQueue<T> taskQueue = new LinkedBlockingQueue<>();
 
@@ -31,6 +30,7 @@ public class Master<T extends Task, R> {
             Worker<T, R> worker = new Worker<>();
             workers.put("子节点: " + i, worker);
         }
+        // 匿名内部类,等价于 new Runnable(){this.execute()};
         thread = new Thread(() -> this.execute());
         thread.start();
     }
@@ -48,13 +48,11 @@ public class Master<T extends Task, R> {
 //        Print.tco(taskName + ":" + task.getResult());
         R result = task.getResult();
         resultMap.put(taskName, result);
-
         sum.getAndAdd((Integer) result);
     }
 
     // 启动所有的子任务
     public void execute() {
-
         for (; ; ) {
             // 从任务队列中获取任务，然后Worker节点轮询,  轮流分配任务
             for (Map.Entry<String, Worker<T, R>> entry : workers.entrySet()) {
@@ -68,9 +66,7 @@ public class Master<T extends Task, R> {
                 }
             }
         }
-
     }
-
 
     // 获取最终的结果
     public void printResult() {

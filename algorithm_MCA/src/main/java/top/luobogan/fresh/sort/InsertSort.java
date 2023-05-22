@@ -44,8 +44,6 @@ public class InsertSort {
         System.out.println();
     }
 
-
-
     /**
      * 交换列表内的两个数字
      * @param list
